@@ -211,7 +211,7 @@ double **beam_damage_status::beam_damage(double ****member_realization,double **
 		}
 	}
 	
-	output.open("result\\beam_damage_status.txt",ios::out);
+	output.open("result\\structural component damage\\beam_damage_status.txt",ios::out);
 	output<<"ID"<<"	"<<"DS1"<<"	"<<"DS2"<<"	"<<"DS3"<<"	"<<"DS4"<<"	"<<"DS5"<<"	"<<"DS6"<<"\n";
 	for (int flrs=0; flrs<number_of_floors;flrs++)
 	{

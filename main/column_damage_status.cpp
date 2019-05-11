@@ -431,7 +431,7 @@ double **column_damage_status::column_damage(double ****member_realization,int l
 		}
 	}
 
-	output.open("result\\column_damage_status.txt",ios::out);
+	output.open("result\\structural component damage\\column_damage_status.txt",ios::out);
 	output<<"ID"<<"	"<<"DS1"<<"	"<<"DS2"<<"	"<<"DS3"<<"	"<<"DS4"<<"	"<<"DS5"<<"	"<<"DS6"<<"\n";
 	for (int flrs=0; flrs<number_of_floors;flrs++)
 	{

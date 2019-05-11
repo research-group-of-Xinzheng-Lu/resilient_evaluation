@@ -178,7 +178,7 @@ double **wall_damage_status::wall_damage(double ****member_realization,double **
 		}
 	}
 
-	output.open("result\\wall_damage_status.csv",ios::out);
+	output.open("result\\structural component damage\\wall_damage_status.csv",ios::out);
 	output<<"ID"<<"	"<<"DS1"<<"	"<<"DS2"<<"	"<<"DS3"<<"	"<<"DS4"<<"	"<<"DS5"<<"	"<<"DS6"<<"\n";
 	for (int flrs=0; flrs<number_of_floors;flrs++)
 	{

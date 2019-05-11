@@ -231,17 +231,7 @@ int main()
 	}
 	edp.close();
 
-	output.open("test.txt",ios::out);
-	getline(edp,temp);
-	for (int i=0; i<GMs; i++)
-	{
-		for (int num=0; num<number_of_beam_eachfloor*num_beam_partition*number_of_floors; num++)
-		{
-			output<<EDPs[i][num]<<"	";
-		}
-		output<<"\n";
-	}
-	output.close();
+
 
 
 	Beam_Edps_realization = M.monte_carlo_sim(EDPs, GMs, number_of_beam_ele, number_of_realization, "beam");
@@ -312,16 +302,7 @@ int main()
 			}
 		}
 		edp.close();
-				output.open("test.txt",ios::out);
-				for (int i=0; i<GMs; i++)
-		{
-			for (int num=0; num<number_of_wall_eachfloor*number_of_floors; num++)
-			{
-				output<<EDPs[i][num]<<"	";
-			}
-			output<<"\n";
-		}
-		output.close();
+
 
 		Wall_Edps_realization = M.monte_carlo_sim(EDPs, GMs, number_of_wall_ele, number_of_realization,"wall");
 
@@ -390,7 +371,17 @@ int main()
 		}
 	}
 	edp.close();
-
+		output.open("test.txt",ios::out);
+	getline(edp,temp);
+	for (int i=0; i<GMs; i++)
+	{
+		for (int num=0; num<number_of_floors; num++)
+		{
+			output<<EDPs[i][num]<<"	";
+		}
+		output<<"\n";
+	}
+	output.close();
 	Floor_acceleration_Edps_realization = M.monte_carlo_sim(EDPs, GMs, number_of_floors, number_of_realization,"flooracceleration");
 
 	realization_output.open("realization_matrix\\floor_acceleration_realization_matrix.txt",ios::out);
@@ -487,7 +478,7 @@ int main()
 		
 	floor_damage_proportion = A.column_damage(member_realization,seismic_fortification,member_vol,member_mp,column_axial,member_height,member_EI,number_of_floors,number_of_realization,number_of_column_eachfloor,num_column_partition);
 		//Êä³öÖùµÄËðÉË×´Ì¬
-	output.open("result\\Storey column damage status.txt",ios::out);
+	output.open("result\\floor damage\\Storey column damage status.txt",ios::out);
 	output<<"Floor"<<"	"<<"DS1"<<"	"<<"DS2"<<"	"<<"DS3"<<"	"<<"DS4"<<"	"<<"DS5"<<"	"<<"DS6"<<"\n";
 	int id=1;
 	for (int flrs=0; flrs<number_of_floors;flrs++)
@@ -613,7 +604,7 @@ int main()
 		
 	floor_damage_proportion = B.beam_damage(member_realization,member_vol,member_mp,member_height,member_EI,number_of_floors, number_of_realization, number_of_beam_eachfloor, num_beam_partition, member_mp[0][0][0]);
 	//Êä³öÁºµÄËðÉË×´Ì¬
-	output.open("result\\Storey beam damage status.txt",ios::out);
+	output.open("result\\floor damage\\Storey beam damage status.txt",ios::out);
 	output<<"Floor"<<"	"<<"DS1"<<"	"<<"DS2"<<"	"<<"DS3"<<"	"<<"DS4"<<"	"<<"DS5"<<"	"<<"DS6"<<"\n";
 	id=1;
 	for (int flrs=0; flrs<number_of_floors;flrs++)
@@ -716,7 +707,7 @@ int main()
 	floor_damage_proportion = C.couplingbeam_damage(member_realization,member_vol,number_of_floors,number_of_realization,number_of_couplingbeam_eachfloor,num_couplingbeam_partition);
 
 
-	output.open("result\\Storey couplingbeam damage status.txt",ios::out);
+	output.open("result\\floor damage\\Storey couplingbeam damage status.txt",ios::out);
 	output<<"Floor"<<"	"<<"DS1"<<"	"<<"DS2"<<"	"<<"DS3"<<"	"<<"DS4"<<"	"<<"DS5"<<"	"<<"DS6"<<"\n";
 	int id=1;
 	for (int flrs=0; flrs<number_of_floors;flrs++)
@@ -803,7 +794,7 @@ int main()
 	floor_damage_proportion = D.wall_damage(member_realization,member_vol,number_of_floors,number_of_realization,number_of_wall_eachfloor);
 
 	//Êä³öÇ½µÄËðÉË×´Ì¬
-	output.open("result\\Storey wall damage status.txt",ios::out);
+	output.open("result\\floor damage\\Storey wall damage status.txt",ios::out);
 	output<<"Floor"<<"	"<<"DS1"<<"	"<<"DS2"<<"	"<<"DS3"<<"	"<<"DS4"<<"	"<<"DS5"<<"	"<<"DS6"<<"\n";
 	id=1;
 	for (int flrs=0; flrs<number_of_floors;flrs++)
@@ -917,7 +908,7 @@ int main()
 
 	nonstructural_floor_damage_proportion = E.nonstructural_damage(member_realization,number_of_floors,number_of_realization, number_of_acc_type, acc_properties);
 
-	output.open("result\\damage status of acc_nonstructure.txt",ios::out);
+	output.open("result\\nonstructure component damage\\damage status of acc_nonstructure.txt",ios::out);
 	for (int type=0; type<number_of_acc_type; type++)
 		{output<<"Åä¹¹¼þ±àºÅ£º"<<"	"<<type+1<<"\n";
 		output<<"Floor"<<"	"<<"DS1"<<"	"<<"DS2"<<"	"<<"DS3"<<"	"<<"DS4"<<"\n";
@@ -1033,26 +1024,9 @@ int main()
 	}
 	realization_matrix.close();
 	
-	output.open("test.txt",ios::out);
-	for (int flrs=0; flrs<number_of_floors; flrs++)
-	{
-		for (int member=0; member<1; member++)
-		{
-			for (int ele=0; ele<1; ele++)
-			{
-				for (int num=0; num<number_of_realization; num++)
-				{
-					output<<member_realization[flrs][member][ele][num]<<"	";
-				}				
-			}
-		}
-		output<<"\n";
-	}
-	output.close();
-	
 	nonstructural_floor_damage_proportion = E.nonstructural_damage(member_realization,number_of_floors,number_of_realization, number_of_dis_type, dis_properties);
 
-	output.open("result\\damage status of dis_nonstructure.txt",ios::out);
+	output.open("result\\nonstructure component damage\\damage status of dis_nonstructure.txt",ios::out);
 	for (int type=0; type<number_of_dis_type; type++)
 		{output<<"Åä¹¹¼þ±àºÅ£º"<<"	"<<type+1<<"\n";
 		output<<"Floor"<<"	"<<"DS1"<<"	"<<"DS2"<<"	"<<"DS3"<<"	"<<"DS4"<<"\n";
