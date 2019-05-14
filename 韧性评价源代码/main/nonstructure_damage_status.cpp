@@ -54,11 +54,12 @@ double ***nonstructure_damage_status::nonstructural_damage(double ****member_rea
 		std_dev_2=component_properties[type][1][1];
 		theta_3=component_properties[type][0][2];
 		std_dev_3=component_properties[type][1][2];
+		for (int num=0; num<number_of_realization; num++)
+		{
+			R=S.random(0,1);
 		for (int flrs=0; flrs<number_of_floors; flrs++)
 		{
-			for (int num=0; num<number_of_realization; num++)
-			{
-				R=S.random(0,1);
+			
 				if(R<S.CDF_normal(log(member_realization[flrs][0][0][num]/theta_1)/std_dev_1,0,1))
 				{	
 					if (theta_2!=0)

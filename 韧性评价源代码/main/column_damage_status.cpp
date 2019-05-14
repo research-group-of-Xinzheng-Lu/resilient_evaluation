@@ -76,6 +76,9 @@ double **column_damage_status::column_damage(double ****member_realization,int l
 	//当框架抗震等级为1级时
 	if(level_of_frame==1)
 	{
+		for (int num=0; num<number_of_realization; num++)
+		{
+			R=S.random(0,1);
 		for (int flrs=0; flrs<number_of_floors; flrs++)
 		{
 			for (int member=0; member<number_of_column_eachfloor; member++)
@@ -120,9 +123,7 @@ double **column_damage_status::column_damage(double ****member_realization,int l
 					std_dev_y = 0.1*(column_axial[flrs][member]-0.4)+0.4;
 				}
 					
-				for (int num=0; num<number_of_realization; num++)
-				{
-					R=S.random(0,1);
+				
 					if(R<S.CDF_normal(log(member_realization[flrs][member][part][num]/theta_y)/std_dev_y,0,1))
 					{
 						if(R<S.CDF_normal(log(member_realization[flrs][member][part][num]/theta_IO)/std_dev_IO,0,1))
@@ -171,6 +172,9 @@ double **column_damage_status::column_damage(double ****member_realization,int l
 	//当框架抗震等级为1级时
 	if(level_of_frame==2)
 	{
+		for (int num=0; num<number_of_realization; num++)
+		{
+		R=S.random(0,1);
 		for (int flrs=0; flrs<number_of_floors; flrs++)
 		{
 			for (int member=0; member<number_of_column_eachfloor; member++)
@@ -215,9 +219,7 @@ double **column_damage_status::column_damage(double ****member_realization,int l
 					std_dev_y = ((0.45-0.40)/(1.05-0.4))*(column_axial[flrs][member]-0.4)+0.4;
 				}
 					
-				for (int num=0; num<number_of_realization; num++)
-				{
-					R=S.random(0,1);
+				
 					if(R<S.CDF_normal(log(member_realization[flrs][member][part][num]/theta_y)/std_dev_y,0,1))
 					{
 						if(R<S.CDF_normal(log(member_realization[flrs][member][part][num]/theta_IO)/std_dev_IO,0,1))
@@ -269,6 +271,9 @@ double **column_damage_status::column_damage(double ****member_realization,int l
 	//当框架抗震等级为其它等级时
 	else
 	{
+		for (int num=0; num<number_of_realization; num++)
+		{
+		R=S.random(0,1);
 		for (int flrs=0; flrs<number_of_floors; flrs++)
 		{
 			for (int member=0; member<number_of_column_eachfloor; member++)
@@ -314,9 +319,7 @@ double **column_damage_status::column_damage(double ****member_realization,int l
 					std_dev_y =((0.45-0.40)/(1.05-0.4))*(column_axial[flrs][member]-0.4)+0.4;
 				}
 					
-				for (int num=0; num<number_of_realization; num++)
-				{
-					R=S.random(0,1);
+				
 					if(R<S.CDF_normal(log(member_realization[flrs][member][part][num]/theta_y)/std_dev_y,0,1))
 					{
 						if(R<S.CDF_normal(log(member_realization[flrs][member][part][num]/theta_IO)/std_dev_IO,0,1))

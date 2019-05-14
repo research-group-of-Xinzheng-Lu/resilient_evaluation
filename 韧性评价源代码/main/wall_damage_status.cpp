@@ -75,13 +75,14 @@ double **wall_damage_status::wall_damage(double ****member_realization,double **
 	std_dev_LS=0.21;
 	theta_u=0.013;
 	std_dev_u=0.3;
+	for (int num=0; num<number_of_realization; num++)
+	{
+		R=S.random(0,1);
 	for (int flrs=0; flrs<number_of_floors; flrs++)
 	{
 		for (int member=0; member<number_of_wall_eachfloor; member++)
 		{
-			for (int num=0; num<number_of_realization; num++)
-			{
-				R=S.random(0,1);
+			
 				if(R<S.CDF_normal(log(member_realization[flrs][member][0][num]/theta_y)/std_dev_y,0,1))
 				{											
 					if(R<S.CDF_normal(log(member_realization[flrs][member][0][num]/theta_IO)/std_dev_IO,0,1))

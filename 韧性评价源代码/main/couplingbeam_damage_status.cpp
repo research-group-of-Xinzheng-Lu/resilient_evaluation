@@ -78,15 +78,16 @@ double **couplingbeam_damage_status::couplingbeam_damage(double ****member_reali
 	std_dev_LS=0.53;
 	theta_u=0.025;
 	std_dev_u=0.39;
+	for (int num=0; num<number_of_realization; num++)
+	{
+		R=S.random(0,1);
 	for (int flrs=0; flrs<number_of_floors; flrs++)
 	{
 		for (int member=0; member<number_of_couplingbeam_eachfloor; member++)
 		{
 			for (int part=0; part<num_couplingbeam_partition;part++)
 			{
-				for (int num=0; num<number_of_realization; num++)
-				{
-					R=S.random(0,1);
+				
 					if(R<S.CDF_normal(log(member_realization[flrs][member][part][num]/theta_y)/std_dev_y,0,1))
 					{											
 						if(R<S.CDF_normal(log(member_realization[flrs][member][part][num]/theta_IO)/std_dev_IO,0,1))

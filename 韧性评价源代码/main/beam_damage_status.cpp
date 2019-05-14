@@ -77,6 +77,9 @@ double **beam_damage_status::beam_damage(double ****member_realization,double **
 ///////////////////////////初始化/////////////////////////////
 
 	overall_volume=0;
+	for (int num=0; num<number_of_realization; num++)
+	{
+	R=S.random(0,1);
 
 	for (int flrs=0; flrs<number_of_floors; flrs++)
 	{
@@ -99,9 +102,7 @@ double **beam_damage_status::beam_damage(double ****member_realization,double **
 				theta_u=0.03;
 				std_dev_u=0.4;
 			
-				for (int num=0; num<number_of_realization; num++)
-				{
-					R=S.random(0,1);
+
 					if(R<S.CDF_normal(log(member_realization[flrs][member][ele][num]/theta_y)/std_dev_y,0,1))
 					{
 											
@@ -165,13 +166,13 @@ double **beam_damage_status::beam_damage(double ****member_realization,double **
 
 	}
 	//计算构件每个状态的损伤比例
-
+	for (int num=0; num<number_of_realization; num++)
+	{
 	for (int flrs=0; flrs<number_of_floors;flrs++)
 	{
 		for (int member=0; member<(number_of_beam_eachfloor); member++)
 		{
-			for (int num=0; num<number_of_realization; num++)
-			{
+			
 				if(member_status[flrs][member][0][num]==5)
 				{
 					member_damage_proportion[flrs][member][5]=member_damage_proportion[flrs][member][5]+1;

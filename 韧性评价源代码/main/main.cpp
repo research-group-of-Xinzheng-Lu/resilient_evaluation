@@ -371,17 +371,7 @@ int main()
 		}
 	}
 	edp.close();
-		output.open("test.txt",ios::out);
-	getline(edp,temp);
-	for (int i=0; i<GMs; i++)
-	{
-		for (int num=0; num<number_of_floors; num++)
-		{
-			output<<EDPs[i][num]<<"	";
-		}
-		output<<"\n";
-	}
-	output.close();
+
 	Floor_acceleration_Edps_realization = M.monte_carlo_sim(EDPs, GMs, number_of_floors, number_of_realization,"flooracceleration");
 
 	realization_output.open("realization_matrix\\floor_acceleration_realization_matrix.txt",ios::out);
@@ -703,7 +693,7 @@ int main()
 		}
 	}
 	properties.close();
-	
+
 	floor_damage_proportion = C.couplingbeam_damage(member_realization,member_vol,number_of_floors,number_of_realization,number_of_couplingbeam_eachfloor,num_couplingbeam_partition);
 
 
