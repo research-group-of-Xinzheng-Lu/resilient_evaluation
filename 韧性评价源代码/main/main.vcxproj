@@ -69,7 +69,7 @@
     <IncludePath>C:\eigen-eigen-323c052e1731\eigen-eigen-323c052e1731;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\eigen-eigen-323c052e1731\eigen-eigen-323c052e1731;$(IncludePath)</IncludePath>
+    <IncludePath>F:\CHEACHEAVPOR_from_101\resiliencev1.3\resilience\resilient_evaluation\韧性评价源代码\eigen\eigen-eigen-323c052e1731;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
