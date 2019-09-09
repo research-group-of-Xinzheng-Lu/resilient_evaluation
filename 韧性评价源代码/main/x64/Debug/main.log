@@ -1,0 +1,41 @@
+﻿生成启动时间为 2019/5/14 15:57:00。
+     1>项目“F:\CHEACHEAVPOR_from_101\resiliencev1.3\resilience\resilient_evaluation\韧性评价源代码\main\main.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt beam_damage_status.cpp column_damage_status.cpp couplingbeam_damage_status.cpp main.cpp monte_carlo.cpp nonstructure_damage_status.cpp stat.cpp wall_damage_status.cpp
+         wall_damage_status.cpp
+         stat.cpp
+     1>stat.cpp(66): warning C4244: “return”: 从“double”转换到“int”，可能丢失数据
+         nonstructure_damage_status.cpp
+     1>nonstructure_damage_status.cpp(10): warning C4101: “floor_damage_proportion”: 未引用的局部变量
+         monte_carlo.cpp
+     1>monte_carlo.cpp(51): warning C4244: “=”: 从“Eigen::EigenBase<Derived>::Index”转换到“int”，可能丢失数据
+                 with
+                 [
+                     Derived=Eigen::FullPivLU<Eigen::Matrix<double,-1,-1>>
+                 ]
+     1>monte_carlo.cpp(59): warning C4244: “=”: 从“Eigen::EigenBase<Derived>::Index”转换到“int”，可能丢失数据
+                 with
+                 [
+                     Derived=Eigen::FullPivLU<Eigen::Matrix<double,-1,-1>>
+                 ]
+         main.cpp
+     1>main.cpp(605): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+         couplingbeam_damage_status.cpp
+         column_damage_status.cpp
+         beam_damage_status.cpp
+         正在生成代码...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"F:\CHEACHEAVPOR_from_101\resiliencev1.3\resilience\resilient_evaluation\韧性评价源代码\x64\Debug\main.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\CHEACHEAVPOR_from_101\resiliencev1.3\resilience\resilient_evaluation\韧性评价源代码\x64\Debug\main.pdb" /HEAP:"1000000000","1000000000" /STACK:"1000000000","1000000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\CHEACHEAVPOR_from_101\resiliencev1.3\resilience\resilient_evaluation\韧性评价源代码\x64\Debug\main.lib" /MACHINE:X64 x64\Debug\beam_damage_status.obj
+         x64\Debug\column_damage_status.obj
+         x64\Debug\couplingbeam_damage_status.obj
+         x64\Debug\main.obj
+         x64\Debug\monte_carlo.obj
+         x64\Debug\nonstructure_damage_status.obj
+         x64\Debug\stat.obj
+         x64\Debug\wall_damage_status.obj
+         main.vcxproj -> F:\CHEACHEAVPOR_from_101\resiliencev1.3\resilience\resilient_evaluation\韧性评价源代码\x64\Debug\main.exe
+     1>已完成生成项目“F:\CHEACHEAVPOR_from_101\resiliencev1.3\resilience\resilient_evaluation\韧性评价源代码\main\main.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:10.23
